@@ -1,0 +1,42 @@
+﻿
+
+.nen {
+    background-color: greenyellow;
+    font-size: 30px;
+}
+
+.mau:hover {
+    font-weight: bold;
+}
+
+.content {
+    background-color: var(--bg);
+    width: 80vw;
+    margin: 20px 9%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    vertical-align: middle;
+}
+
+.item {
+    position: relative;
+}
+
+    .item img {
+        height: 300px;
+        width: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+        z-index: 1;
+    }
+
+
+    .item h3 {
+        display: block;
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
+        z-index: 3;
+        color: white;
+        transition: 0.5s ease;
+    }

@@ -1,0 +1,60 @@
+﻿@model tintucbongda.Models.timkiemGenreViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create">Tạo mới</a>
+</p>
+<form asp-controller="timkiems" asp-action="Index" method="get">
+    <p>
+        <select asp-for="timkiemGenre" asp-items="Model.Genres">
+        <option value="">Tất cả</option>
+        </select>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Tìm kiếm" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.timkiems[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timkiems[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timkiems[0].Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.timkiems[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.timkiems) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Chỉnh sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">xoá</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
